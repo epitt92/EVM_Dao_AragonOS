@@ -1,0 +1,6 @@
+.app-item > div:hover{
+    background: #3F4E6D;
+}
+.card-item:hover{
+    transform: translateY(-10px);
+}
