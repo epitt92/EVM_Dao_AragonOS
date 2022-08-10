@@ -162,9 +162,10 @@ export function getClientTheme() {
   }
   return {
     // To be replaced by an “auto” state
-    appearance: window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light',
+    // appearance: window.matchMedia('(prefers-color-scheme: dark)').matches
+    //   ? 'dark'
+    //   : 'light',
+    appearance: "dark",
     theme: null,
   }
 }
