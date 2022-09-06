@@ -62,20 +62,22 @@ function MenuPanel({
   )
 
   const appGroups = useMemo(
-    () =>
+    () => {
       appInstanceGroups
-        .filter(appGroup => appGroup.hasWebApp)
-        .map(appGroup => ({
-          ...appGroup,
-          icon: <AppIcon app={appGroup.app} />,
-        })),
+      .filter(appGroup => appGroup.hasWebApp)
+      .map(appGroup => ({
+        ...appGroup,
+        icon: <AppIcon app={appGroup.app} />,
+      }))
+    }
+      ,
     [appInstanceGroups]
   )
 
   const activeInstanceId = (mode.name === 'org' && mode.instanceId) || null
 
   const showConsole = consoleVisible || activeInstanceId === 'console'
-  const menuApps = [APP_HOME, appGroups]
+  const menuApps = [APP_HOME]
   const systemApps = [
     APP_PERMISSIONS,
     APP_APPS_CENTER,

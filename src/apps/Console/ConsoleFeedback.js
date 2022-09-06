@@ -7,11 +7,11 @@ import { shortenAddress } from '../../util/web3'
 
 // Tuple of [display name, app name]
 const INSTALLABLE_APPS = [
-  ['Agent', 'agent'],
-  ['Finance', 'finance'],
-  ['Tokens', 'token-manager'],
-  ['Vault', 'vault'],
-  ['Voting', 'voting'],
+  // ['Agent', 'agent'],
+  // ['Finance', 'finance'],
+  // ['Tokens', 'token-manager'],
+  // ['Vault', 'vault'],
+  // ['Voting', 'voting'],
 ]
 const SUGGESTED_COMMANDS = ['Exec', 'Act']
 

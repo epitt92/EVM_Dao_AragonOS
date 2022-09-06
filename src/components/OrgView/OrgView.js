@@ -292,7 +292,7 @@ function OrgView({
             css={`
               flex-grow: 1;
               overflow-y: hidden;
-              margin-top: 2px;
+              margin-top: 0px;
               ${menuPanelOpen && iOS
                 ? `
                   padding-top: ${8 * GU}px;

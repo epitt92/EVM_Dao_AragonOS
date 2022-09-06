@@ -85,37 +85,37 @@ export default {
           <ReviewScreen
             screenProps={props}
             items={[
-              {
-                label: 'General info',
-                fields: [
-                  ['Organization template', 'Open Enterprise'],
-                  ['Name', completeDomain(domain)],
-                ],
-              },
-              {
-                label: (
-                  <KnownAppBadge appName="voting.aragonpm.eth" label="Voting" />
-                ),
-                fields: VotingScreen.formatReviewFields(voting),
-              },
-              {
-                label: (
-                  <KnownAppBadge
-                    appName="dot-voting.aragonpm.eth"
-                    label="Dot Voting"
-                  />
-                ),
-                fields: DotVotingScreen.formatReviewFields(dotVoting),
-              },
-              {
-                label: (
-                  <KnownAppBadge
-                    appName="token-manager.aragonpm.eth"
-                    label="Tokens"
-                  />
-                ),
-                fields: TokensScreen.formatReviewFields(tokens),
-              },
+              // {
+              //   label: 'General info',
+              //   fields: [
+              //     ['Organization template', 'Open Enterprise'],
+              //     ['Name', completeDomain(domain)],
+              //   ],
+              // },
+              // {
+              //   label: (
+              //     <KnownAppBadge appName="voting.aragonpm.eth" label="Voting" />
+              //   ),
+              //   fields: VotingScreen.formatReviewFields(voting),
+              // },
+              // {
+              //   label: (
+              //     <KnownAppBadge
+              //       appName="dot-voting.aragonpm.eth"
+              //       label="Dot Voting"
+              //     />
+              //   ),
+              //   fields: DotVotingScreen.formatReviewFields(dotVoting),
+              // },
+              // {
+              //   label: (
+              //     <KnownAppBadge
+              //       appName="token-manager.aragonpm.eth"
+              //       label="Tokens"
+              //     />
+              //   ),
+              //   fields: TokensScreen.formatReviewFields(tokens),
+              // },
             ]}
           />
         )

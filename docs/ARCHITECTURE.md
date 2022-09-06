@@ -35,7 +35,7 @@ If you find an issue, or would like to add a feature, ask yourself these followi
 	- Is it related to the sandboxed applications? **If yes**, make the changes in [`aragon/aragon-apps`](https://github.com/aragon/aragon-apps) or your own app's repo.
 	- Is it related to one of the onboarding templates? **If yes**, you'll want to see if it's a template from [`aragon/dao-templates`](https://github.com/aragon/dao-templates).
 	- **Else**, [aragonOS](https://github.com/aragon/aragonOS) is most likely the repo to look at.
-- Is it in one of the sandboxed applications (e.g. Voting, Tokens, or Finance from [`aragon/aragon-apps`](https://github.com/aragon/aragon-apps))?
+- Is it in one of the sandboxed applications (e.g. , Tokens, or Finance from [`aragon/aragon-apps`](https://github.com/aragon/aragon-apps))?
 	- Make the changes there!
 - Is it a generic UI component?
 	- Would it mostly benefit Aragon-related developers? **If yes**, [aragonUI](https://github.com/aragon/ui) is the best place.

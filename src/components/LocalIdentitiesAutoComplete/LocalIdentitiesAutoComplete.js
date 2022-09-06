@@ -177,7 +177,7 @@ Selected.propTypes = {
 const Option = styled.div`
   padding: ${1 * GU}px;
   display: grid;
-  grid-template-columns: auto minmax(140px, 1fr);
+  grid-template-columns: auto minmax(120px, 1fr);
   grid-gap: ${1 * GU}px;
   align-items: center;
 `

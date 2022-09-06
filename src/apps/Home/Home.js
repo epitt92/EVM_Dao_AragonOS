@@ -92,7 +92,7 @@ function Home({ apps, onOpenApp }) {
         >
           What do you want to do?
         </h1>
-        <CardLayout rowHeight={33 * GU} columnWidthMin={35 * GU}>
+        <CardLayout rowHeight={33 * GU} columnWidthMin={30 * GU}>
           {appActions.map(({ appId, img, label }, index) => (
             <HomeCard
               key={index}
