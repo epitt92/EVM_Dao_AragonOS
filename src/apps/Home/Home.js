@@ -4,13 +4,13 @@ import { CardLayout, Card, GU, textStyle, useLayout } from '@aragon/ui'
 import { AppType } from '../../prop-types'
 import appIds from '../../known-app-ids'
 
-import imgEagle from '../../assets/eagle.svg'
+import imgEagle from '../../assets/background.svg'
 import imgAssignTokens from './assets/assign-tokens.png'
 import imgCheckFinance from './assets/check-finance.png'
 import imgNewPayment from './assets/new-payment.png'
 import imgCreateNewVote from './assets/create-new-vote.png'
 
-import '../../assets/css/menu.css'
+
 
 const EAGLE_DIMENSIONS = [1241, 833]
 
@@ -60,6 +60,7 @@ function Home({ apps, onOpenApp }) {
 
   return (
     <div
+      className='ba'
       css={`
         position: absolute;
         top: 0;
@@ -69,7 +70,6 @@ function Home({ apps, onOpenApp }) {
         display: grid;
         align-items: center;
         justify-content: center;
-        background: fixed 100% no-repeat url(${imgEagle});
         overflow: auto;
       `}
     >
@@ -92,7 +92,7 @@ function Home({ apps, onOpenApp }) {
         >
           What do you want to do?
         </h1>
-        <CardLayout rowHeight={33 * GU} columnWidthMin={31 * GU}>
+        <CardLayout rowHeight={33 * GU} columnWidthMin={35 * GU}>
           {appActions.map(({ appId, img, label }, index) => (
             <HomeCard
               key={index}
@@ -120,22 +120,22 @@ function HomeCard({ onOpen, appId, label, img }) {
 
   return (
     <Card
-      className="card-item"
+      className="card green"
       onClick={handleClick}
       css={`
-        border-radius: 20px;
+        border-radius: 50px;
         display: flex;
         flex-direction: column;
       `}
     >
       <img src={img} alt="" width="184" height="145" />
       <p
-        css={`
+        className={'btn-grad'} css={`
           margin-top: ${2 * GU}px;
-          ${textStyle('title4')};
         `}
       >
         {label}
+
       </p>
     </Card>
   )

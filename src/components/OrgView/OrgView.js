@@ -37,7 +37,7 @@ import { NetworkIndicator } from '../NetworkIndicator/NetworkIndicator'
 import { NetworkSwitchModal } from '../Modals'
 import { trackEvent, events } from '../../analytics'
 import { useWallet } from '../../contexts/wallet'
-
+import back from '../../assets/back.jpg'
 // Remaining viewport width after the menu panel is factored in
 const AppWidthContext = React.createContext(0)
 
@@ -208,6 +208,7 @@ function OrgView({
         z-index: 0;
         height: 100vh;
         min-width: ${45 * GU}px;
+        background: r
       `}
     >
       <div
@@ -227,15 +228,16 @@ function OrgView({
       >
         <div
           css={`
-            display: flex;
-            flex-direction: column;
+          display: flex;
+          flex-direction: column;
             position: relative;
             height: 100%;
             width: 100%;
-            background: ${theme.background};
+            background: fixed no-repeat url(${back});
           `}
         >
           <TopbarContainer
+            className='top-bar'
             iosMenuPane={menuPanelOpen && iOS}
             bgColor={theme.surface}
           >
@@ -260,6 +262,25 @@ function OrgView({
                 }}
               />
             )}
+            <div css={`
+            width: 900px;
+            margin: auto;
+            `}
+            >
+              <MenuPanel
+                appInstanceGroups={appInstanceGroups}
+                appsStatus={appsStatus}
+                autoClosing={autoClosingPanel}
+                daoAddress={daoAddress}
+                daoStatus={daoStatus}
+                onMenuPanelClose={handleCloseMenuPanel}
+                onOpenApp={handleOpenApp}
+                opened={menuPanelOpen}
+                css="z-index: 3"
+              />
+            </div>
+
+
             <RightButtonContainer>
               <GlobalPreferencesButton />
               <ActivityButton apps={apps} />
@@ -290,17 +311,6 @@ function OrgView({
                   : ''}
               `}
             >
-              <MenuPanel
-                appInstanceGroups={appInstanceGroups}
-                appsStatus={appsStatus}
-                autoClosing={autoClosingPanel}
-                daoAddress={daoAddress}
-                daoStatus={daoStatus}
-                onMenuPanelClose={handleCloseMenuPanel}
-                onOpenApp={handleOpenApp}
-                opened={menuPanelOpen}
-                css="z-index: 3"
-              />
               <div
                 css={`
                   flex-grow: 1;
@@ -410,7 +420,6 @@ const TopbarContainer = styled.div`
   z-index: 2;
   height: ${8 * GU}px;
   display: flex;
-  justify-content: space-between;
   background: ${props => props.bgColor};
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 

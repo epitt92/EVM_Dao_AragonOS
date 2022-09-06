@@ -39,10 +39,10 @@ const APP_PERMISSIONS = staticApps.get('permissions').app
 
 const systemAppsOpenedState = {
   key: 'SYSTEM_APPS_OPENED_STATE',
-  isOpen: function() {
+  isOpen: function () {
     return localStorage.getItem(this.key) === '1'
   },
-  set: function(opened) {
+  set: function (opened) {
     localStorage.setItem(this.key, opened ? '1' : '0')
   },
 }
@@ -105,7 +105,10 @@ function MenuPanel({
         ) !== -1
 
       return (
-        <div className='app-item' key={appId}>
+        <div css={`
+        display: flex;
+        flex-direction: row;
+        `} className='app-item' key={appId}>
           <MenuPanelAppGroup
             name={name}
             icon={icon}
@@ -114,6 +117,10 @@ function MenuPanel({
             expand={isActive}
             activeInstanceId={activeInstanceId}
             onActivate={onOpenApp}
+            css={`
+            border-radius: 50px;
+            background-color: blue;
+            `}
           />
         </div>
       )
@@ -127,9 +134,9 @@ function MenuPanel({
       const expandedInstancesCount = appGroups.reduce(
         (height, { instances }) =>
           instances.length > 1 &&
-          instances.findIndex(
-            ({ instanceId }) => instanceId === activeInstanceId
-          ) > -1
+            instances.findIndex(
+              ({ instanceId }) => instanceId === activeInstanceId
+            ) > -1
             ? height + instances.length
             : height,
         0
@@ -137,13 +144,21 @@ function MenuPanel({
 
       // Wrap the DAO apps in the loader
       return (
-        <MenuPanelAppsLoader
-          key="menu-apps"
-          appsStatus={appsStatus}
-          expandedInstancesCount={expandedInstancesCount}
+        <div
+          css={`
+          display: flex;
+          flex-direction: row;
+          `}
         >
-          {appGroups.map(app => renderAppGroup(app))}
-        </MenuPanelAppsLoader>
+          <MenuPanelAppsLoader
+            key="menu-apps"
+            className="row-show"
+            appsStatus={appsStatus}
+            expandedInstancesCount={expandedInstancesCount}
+          >
+            {appGroups.map(app => renderAppGroup(app))}
+          </MenuPanelAppsLoader>
+        </div>
       )
     },
     [appsStatus, activeInstanceId, renderAppGroup]
@@ -158,12 +173,10 @@ function MenuPanel({
   return (
     <Main>
       <div
+        className='menu-panel'  
         css={`
-          position: relative;
           display: flex;
-          flex-direction: column;
-          height: 100%;
-          flex-shrink: 1;
+          flex-direction: row;
           box-shadow: 2px 0 ${MENU_PANEL_SHADOW_WIDTH}px rgba(0, 0, 0, 0.05);
         `}
       >
@@ -178,15 +191,16 @@ function MenuPanel({
         )}
         <nav
           css={`
-            overflow-y: auto;
-            flex: 1 1 0;
-            padding-top: ${(showOrgSwitcher ? 1 : 3) * GU}px;
+          display: flex;
+          flex-direction: row;
           `}
         >
-          <Heading label="Apps" />
+          {/* <Heading label="Apps" className='heading' /> */}
           <div
             css={`
               margin-top: ${0.5 * GU}px;
+              display: flex;
+              flex-direction: row;
             `}
           >
             {menuApps.map(app =>
@@ -194,21 +208,24 @@ function MenuPanel({
               Array.isArray(app)
                 ? renderLoadedAppGroup(app)
                 : renderAppGroup(app)
+              // renderAppGroup(app)
             )}
           </div>
 
           <div
             css={`
               padding-top: ${1 * GU}px;
+              display: flex;
+              flex-direction: row;
             `}
           >
-            <Details
-              label="System"
+            {/* <Details
+              label=""
               opened={systemAppsOpened}
               onToggle={handleToggleSystemApps}
-            >
+            > */}
               {systemApps.map(app => renderAppGroup(app))}
-            </Details>
+            {/* </Details> */}
           </div>
         </nav>
       </div>
@@ -277,9 +294,12 @@ function AnimatedMenuPanel({
                 width: 100%;
                 background: ${theme.overlay.alpha(0.9)};
                 ${!opened ? 'pointer-events: none' : ''}
+
               `}
               style={{
                 opacity: menuPanelProgress,
+                display: 'flex',
+                flexDirection: 'row'
               }}
             />
           )}
@@ -287,7 +307,8 @@ function AnimatedMenuPanel({
             css={`
               width: ${MENU_PANEL_WIDTH}px;
               height: 100%;
-              flex: none;
+              display: flex;
+              flex-direction: row;
             `}
             style={{
               position: autoClosing ? 'absolute' : 'relative',
@@ -295,11 +316,13 @@ function AnimatedMenuPanel({
                 v =>
                   `translate3d(
                     ${lerp(
-                      v,
-                      -(MENU_PANEL_WIDTH + MENU_PANEL_SHADOW_WIDTH),
-                      0
-                    )}px, 0, 0)`
+                    v,
+                    -(MENU_PANEL_WIDTH + MENU_PANEL_SHADOW_WIDTH),
+                    0
+                  )}px, 0, 0)`
               ),
+              display: 'flex',
+              flexDirection: 'row'
             }}
           >
             <MenuPanel showOrgSwitcher={autoClosing} {...props} />

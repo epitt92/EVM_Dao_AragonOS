@@ -46,8 +46,8 @@ export const KnownOrganizations = {
       {
         address: '0x2de83b50af29678774d5abc4a7cb2a588762f28c',
         domain: 'governance.aragonproject.eth',
-        name: 'Aragon Governance',
-        image: aragonGovernanceImage,
+        name: 'My DAO ',
+        image: '',
         recommended: true,
         template: TEMPLATE_DEMOCRACY,
       },
@@ -239,7 +239,6 @@ export const getRecommendedOrganizations = (networkType, max = -1) => {
       }
     }
   }
-
   return recommended
 }
 

@@ -21,7 +21,7 @@ import CustomToast from './components/CustomToast/CustomToast'
 import OrgView from './components/OrgView/OrgView'
 import { identifyUser } from './analytics'
 import { isKnownRepo } from './util/repo'
-
+import './assets/css/menu.css'
 import {
   APPS_STATUS_ERROR,
   APPS_STATUS_READY,

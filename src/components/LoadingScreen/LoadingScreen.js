@@ -44,6 +44,7 @@ const LoadingScreen = React.memo(function LoadingScreen({
               position: 'absolute',
               width: '100%',
               height: '100%',
+
               opacity,
             }}
             {...props}

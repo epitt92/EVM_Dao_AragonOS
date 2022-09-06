@@ -155,6 +155,7 @@ export function setPackageVersion(version) {
 
 export function getClientTheme() {
   const storedClientTheme = getLocalStorageSetting(CLIENT_THEME)
+  console.log(storedClientTheme)
   if (storedClientTheme) {
     try {
       return JSON.parse(storedClientTheme)
@@ -162,10 +163,9 @@ export function getClientTheme() {
   }
   return {
     // To be replaced by an “auto” state
-    // appearance: window.matchMedia('(prefers-color-scheme: dark)').matches
-    //   ? 'dark'
-    //   : 'light',
-    appearance: "dark",
+    appearance: window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light',
     theme: null,
   }
 }
